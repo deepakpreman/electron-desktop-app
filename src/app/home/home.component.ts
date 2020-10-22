@@ -98,7 +98,7 @@ export class HomeComponent implements OnInit {
     public getUsers() {
         User.getAll()
             .then((users) => {
-                if(users.length != 0){
+                if(users.length > 1){
                     this.users = users;
                 }else{
                     this.getUserFromApi();
