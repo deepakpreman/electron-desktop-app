@@ -1,0 +1,12 @@
+{
+    "name": "./database.db",
+    "version": 1,
+    "tables": {
+        "user": [
+		    {
+		        "id": "1",
+		        "name": "Deepak M"
+		    }
+		]
+	}
+}

@@ -1,0 +1,87 @@
+{
+  "name": "tsa-desktop-app",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "electron .",
+    "build:once": "ng build --base-href ./",
+    "build:watch": "ng build --base-href ./ --watch",
+    "test": "ng test",
+    "test:codeCoverage": "ng test --codeCoverage",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "package": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "com.deepak.tsa-desktop-app",
+    "productName": "tsa-desktop-app",
+    "directories": {
+      "output": "build"
+    },
+    "nsis": {
+      "oneClick": false
+    },
+    "files": [
+      "!**/.vscode",
+      "!**/build",
+      "!**/config",
+      "!**/assets/data",
+      "!**/src"
+    ],
+    "extraResources": [
+      {
+        "from": "src/assets/data",
+        "to": "dist/assets/data",
+        "filter": "database*"
+      }
+    ]
+  },
+  "dependencies": {
+    "@angular-builders/custom-webpack": "^10.0.1",
+    "@angular/animations": "~10.1.5",
+    "@angular/common": "~10.1.5",
+    "@angular/compiler": "~10.1.5",
+    "@angular/core": "~10.1.5",
+    "@angular/forms": "~10.1.5",
+    "@angular/platform-browser": "~10.1.5",
+    "@angular/platform-browser-dynamic": "~10.1.5",
+    "@angular/router": "~10.1.5",
+    "bootstrap": "^4.5.2",
+    "electron-reload": "^1.5.0",
+    "jquery": "^3.5.1",
+    "karma-electron": "^6.3.1",
+    "ngx-spinner": "^10.0.1",
+    "ngx-toastr": "^13.1.0",
+    "popper.js": "^1.16.1",
+    "rxjs": "^6.6.3",
+    "sqlite3": "^5.0.0",
+    "tslib": "^2.0.2",
+    "zone.js": "~0.11.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.1001.5",
+    "@angular/cli": "~10.1.5",
+    "@angular/compiler-cli": "~10.1.5",
+    "@angular/language-service": "~10.1.5",
+    "@types/jasmine": "^3.5.14",
+    "@types/jasminewd2": "~2.0.8",
+    "@types/node": "^14.11.5",
+    "@types/sqlite3": "^3.1.6",
+    "codelyzer": "^6.0.1",
+    "electron": "^10.1.3",
+    "electron-builder": "^22.8.1",
+    "jasmine-core": "~3.6.0",
+    "jasmine-spec-reporter": "~6.0.0",
+    "karma": "~5.2.3",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage-istanbul-reporter": "~3.0.3",
+    "karma-jasmine": "~4.0.1",
+    "karma-jasmine-html-reporter": "^1.5.4",
+    "karma-spec-reporter": "0.0.32",
+    "protractor": "~7.0.0",
+    "ts-node": "~9.0.0",
+    "tslint": "~6.1.3",
+    "typescript": "~4.0.3"
+  }
+}

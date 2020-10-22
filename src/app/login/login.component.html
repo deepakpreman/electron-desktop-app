@@ -1,0 +1,32 @@
+<div class="container">
+    <!-- Default form login -->
+    <form  [formGroup]="loginForm" (ngSubmit)="login()"  class="login-form">
+    <div class="login-logo"></div>
+    <div class="login-head">
+       <h3>LOGIN</h3>
+    </div>
+    <div [ngClass]="{ 'has-error': isSubmitted && formControls.user_name.errors }">
+       <input    class="form-control mb-4" type="email" placeholder="Email" formControlName="user_name">
+    </div>
+    <div *ngIf="isSubmitted && formControls.user_name.errors" class="help-block">
+       <div *ngIf="formControls.user_name.errors.required"><span class="error-span">Email is required</span></div>
+       <div *ngIf="formControls.user_name.errors.email"><span class="error-span">Email must be a valid email address</span></div>
+    </div>
+    <div class="login-password" [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+       <input  class="form-control mb-4"  type="password" placeholder="Password" formControlName="password">
+    </div>
+    <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+       <div *ngIf="formControls.password.errors.required"><span class="error-span" >Password is required</span></div>
+    </div>
+    <div class="remember-loginbutton">
+       <div>
+          <label class="remember">
+            <span class="check-border">
+              <input class="remember-check"  formControlName="remember_me"  type="checkbox" value="">
+            </span><span class="remember-txt">Remember me</span>
+          </label>
+          <button  [disabled]="isDisabled"  type="submit" class="login-button pull-right">Login</button>
+       </div>
+    </div>
+    </form>
+  </div>
